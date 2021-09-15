@@ -1,0 +1,36 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*:focus {
+  outline: 0 !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+img {
+  height: 100%;
+  object-fit: contain;
+}
+
+mat-form-field .mat-form-field-wrapper .mat-form-field-infix {
+  width: 40px;
+}
+
+mat-divider.mat-divider-vertical {
+  height: 100%;
+}
+
+mat-progress-bar {
+  .mat-progress-bar-background { display: none }
+  .mat-progress-bar-buffer { display: none }
+}

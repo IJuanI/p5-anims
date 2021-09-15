@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"markdown-pdf.headerTemplate": " ",
+		"markdownExtended.pdfHeaderTemplate": " ",
+		"explorer.autoReveal": false,
+		"typescript.preferences.quoteStyle": "single",
+		"typescript.referencesCodeLens.enabled": true,
+		"javascript.referencesCodeLens.enabled": true,
+		"tslint.configFile": "tslint.json",
+		"editor.tabSize": 2,
+	}
+}

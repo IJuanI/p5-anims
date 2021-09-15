@@ -1,0 +1,22 @@
+{
+  "extends": "../../tslint.json",
+  "rulesDirectory": [
+      "../node_modules/codelyzer"
+  ],
+  "rules": {
+      "directive-selector": [
+        true,
+          "attribute",
+          "ceich",
+          "camelCase"
+      ],
+      "component-selector": [
+        true,
+          "element",
+          "ceich",
+          "kebab-case"
+      ],
+      "component-class-suffix": true,
+      "directive-class-suffix": true
+  }
+}

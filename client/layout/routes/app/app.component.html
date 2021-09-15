@@ -1,0 +1,14 @@
+<div id="dummy-canvas"></div>
+<div class="d-flex mt-2">
+  <div class="col-1"></div>
+  <p class="col-2">{{animTime}}</p>
+  <mat-slider [(value)]="animTime" min="0" [max]="animDuration * 1000" class="col-6">
+  </mat-slider>
+  <div class="col-1"></div>
+  <button type="button" mat-mini-fab (click)="togglePause()">
+    <mat-icon *ngIf="!paused; else playButton">pause</mat-icon>
+    <ng-template #playButton>
+      <mat-icon>play_arrow</mat-icon>
+    </ng-template>
+  </button>
+</div>  

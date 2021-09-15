@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content class="d-flex">
+  <div class="col-4" [ngSwitch]="data.mode">
+    <mat-icon *ngSwitchCase="'error'" class="mat-warn">error</mat-icon>
+    <mat-icon *ngSwitchCase="'warning'" class="mat-accent">warning</mat-icon>
+    <mat-icon *ngSwitchDefault class="mat-primary">info</mat-icon>
+  </div>
+  <div class="col">
+    {{data.description || ''}}
+  </div>
+</div>
+<div mat-dialog-actions class="flex-row-reverse">
+  <ng-container *ngFor="let buttonName of data.buttons; let idx = index">
+    <button mat-flat-button class="px-3 ml-4" color="accent" [mat-dialog-close]="idx"
+      *ngIf="idx > (data.buttons.length > 2 ? 0 : 1); else specialCases">
+      {{buttonName}}
+    </button>
+    <ng-template #specialCases>
+      <button mat-flat-button class="px-3 ml-4" color="primary" [mat-dialog-close]="idx"
+        *ngIf="idx == 0; else cancelButton" cdkFocusInitial>
+        {{buttonName}}
+      </button>
+      
+      <ng-template #cancelButton>
+        <button mat-flat-button class="px-3 ml-4" color="warn" (click)="onCancel()">
+          {{buttonName}}
+        </button>
+      </ng-template>
+    </ng-template>
+  </ng-container>
+</div>

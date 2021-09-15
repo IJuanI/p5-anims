@@ -1,0 +1,55 @@
+<mat-toolbar class="mat-bg-primary-off">
+  <div class="d-flex container h-100 py-2 align-items-center">
+    <h4 class="clickable" routerLink="">Prototipo</h4>
+    <mat-divider vertical class="mx-3"></mat-divider>
+    <!-- <span class="col-1"></span> -->
+    <!-- <ceich-auto-menu>
+      <div trigger>Cuentas</div>
+      <div content>
+        <button mat-button routerLink="delete-account">Eliminar Cuenta</button>
+        <button mat-button routerLink="account-info">Información de Cuenta</button>
+      </div>
+    </ceich-auto-menu>
+    <ceich-auto-menu>
+      <div trigger>Sistemas</div>
+      <div content>
+        <button mat-button routerLink="origins">Origenes y Misiones</button>
+        <button mat-button routerLink="rewards">Recompensas</button>
+      </div>
+    </ceich-auto-menu>
+    <ceich-auto-menu>
+      <div trigger>Ranking</div>
+      <div content>
+        <button mat-button routerLink="edit-ranking">Editar Ranking</button>
+        <button mat-button routerLink="reset-ranking">Reiniciar Ranking</button>
+      </div>
+    </ceich-auto-menu>
+    <ceich-auto-menu>
+      <div trigger>Estadísticas</div>
+      <div content>
+        <button mat-button routerLink="item-stats">Items</button>
+      </div>
+    </ceich-auto-menu>
+    <ceich-auto-menu>
+      <div trigger>Administración</div>
+      <div content>
+        <button mat-button routerLink="ai-settings">Configuraciones IA</button>
+        <button mat-button routerLink="profanity">Profanity</button>
+        <button mat-button routerLink="properties">Propiedades</button>
+        <button mat-button routerLink="sponsors" disabled>Sponsors</button>
+        <button mat-button routerLink="dump" disabled>Dump de datos</button>
+      </div>
+    </ceich-auto-menu> -->
+    <span class="flex-grow-1"></span>
+    <!-- <button mat-button routerLink="" class="d-none d-md-block" disabled>Iniciar Sesión</button> -->
+    <mat-divider vertical class="mx-3"></mat-divider>
+    <mat-slide-toggle disableRipple [checked]="checked" (change)="nightModeToggle()">
+    </mat-slide-toggle>
+    <button mat-icon-button class="ml-2" (click)="nightModeToggle()">
+      <mat-icon class="mat-accent-text" *ngIf="isDark; else dayLight">dark_mode</mat-icon>
+      <ng-template #dayLight>
+        <mat-icon class="mat-foreground">light_mode</mat-icon>
+      </ng-template>
+    </button>
+  </div>
+</mat-toolbar>

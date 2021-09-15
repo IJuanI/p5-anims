@@ -1,0 +1,44 @@
+.ceich-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.ceich-navbar {
+  min-width: 64px;
+}
+
+.ceich-content {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 1.5em 1.5em 2em;
+}
+
+// .edu-absolute {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+
+.clickable {
+  cursor: pointer;
+}
+
+mat-form-field.mini-form-field .mat-form-field-wrapper {
+  .mat-form-field-infix {
+    span { margin-top: -0.6em }
+    padding: 0;
+    height: 2.5em
+  }
+  .mat-form-field-prefix { top: 0; }
+  .mat-error {
+    float: right;
+    margin-right: 1em;
+  }
+  padding-bottom: 0
+}
+
+.mat-menu-panel.no-border .mat-menu-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}

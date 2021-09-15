@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": ["node"]
+  },
+  "typeRoots": [
+    "../node_modules/@types"
+  ],
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "../layout/**/*.d.ts",
+    "../services/**/*.d.ts",
+    "../guards/**/*.d.ts"
+  ],
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
