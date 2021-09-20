@@ -32,7 +32,7 @@ export class vector {
     return this;
   }
 
-  public diff(other: vector): vector {
+  public sub(other: vector): vector {
     this.x -= other.x;
     this.y -= other.y;
     this.z ? this.z -= other.z : this.z = -other.z;

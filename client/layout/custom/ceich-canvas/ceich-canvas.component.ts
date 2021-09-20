@@ -36,13 +36,23 @@ export class CeichCanvasComponent implements AfterViewInit {
         this.canvasImpl.draw?.(s);
       }
 
-      s.mouseDragged = (e: MouseEvent) => {
-        this.canvasImpl.mouseDragged?.(s, e);
-      }
+      s.mousePressed = (e: MouseEvent) =>
+        this.canvasImpl.mousePressed?.(s, e);
 
-      s.mouseReleased = (e: MouseEvent) => {
+      s.mouseDragged = (e: MouseEvent) =>
+        this.canvasImpl.mouseDragged?.(s, e);
+
+      s.mouseReleased = (e: MouseEvent) =>
         this.canvasImpl.mouseReleased?.(s, e);
-      }
+
+      s.touchStarted = (e: any) =>
+        this.canvasImpl.touchStarted?.(s, e);
+      
+      s.touchMoved = (e: any) =>
+        this.canvasImpl.touchMoved?.(s, e);
+      
+      s.touchEnded = (e: any) =>
+        this.canvasImpl.touchEnded?.(s, e);
 
     };
 

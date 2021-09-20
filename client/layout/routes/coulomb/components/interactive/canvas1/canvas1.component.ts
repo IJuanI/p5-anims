@@ -36,7 +36,7 @@ export class CoulombInteractiveCanvas1
 
   private mainRadius: number;
   private dragging: boolean = false;
-  private clicking: boolean = false;
+  private lastTouch: vector;
 
   private render: Renderer;
 
@@ -73,33 +73,54 @@ export class CoulombInteractiveCanvas1
     this.drawMainParticle(s);
   }
 
-  mouseDragged(s: p5, e: MouseEvent) {
-    if (!s.mouseIsPressed) this.dragging = false;
-    if (!(e.x < this.offsetX || e.x > this.w + this.offsetX || e.y < this.offsetY || e.y > this.h + this.offsetY)) {
-      if (!this.clicking && s.mouseIsPressed)
-        this.dragging = true;
-    }
-    if (this.dragging)
-      this.mainCharge.move(new vector(e.movementX, e.movementY));
-    this.clicking = s.mouseIsPressed;
+  mousePressed(_s: p5, e: MouseEvent) {
+    if (!(e.x < this.offsetX || e.x > this.w + this.offsetX || e.y < this.offsetY || e.y > this.h + this.offsetY))
+      this.dragging = true;
   }
 
+  touchStarted(_s: p5, e: TouchEvent) {
+    const touch = e.touches?.[0];
+    if (!touch) return;
+    this.lastTouch = new vector(touch.clientX, touch.clientY);
+    if (!(touch.clientX < this.offsetX || touch.clientX > this.w + this.offsetX || touch.clientY < this.offsetY || touch.clientY > this.h + this.offsetY))
+      this.dragging = true;
+  }
+  
+  mouseDragged(_s: p5, e: MouseEvent) {
+    if (this.dragging)
+      this.mainCharge.move(new vector(e.movementX, e.movementY));
+  }
+  
+  touchMoved(_s: p5, e: TouchEvent) {
+    if (this.dragging) {
+      const touch = e.touches?.[0];
+      const touchPos = new vector(touch.clientX, touch.clientY);
+      if (!touch) return;
+      this.mainCharge.move(touchPos.clone().sub(this.lastTouch));
+      this.lastTouch = touchPos;
+    }
+  }
+  
   mouseReleased() {
     this.dragging = false;
-    this.clicking = false;
+  }
+
+  touchEnded(_s: p5, e: TouchEvent) {
+    this.dragging = false;
+    this.lastTouch = undefined;
   }
 
   drawMainParticle(s: p5) {
     s.stroke(this.color.black);
     this.mainRadius = this.mainMinRadius + (this.mainMaxRadius - this.mainMinRadius) * s.abs(this.charge) / 20;
     s.strokeWeight(this.mainRadius + this.mainBorder);
-    
+
     const hRad = (this.mainRadius + this.mainBorder) / 2;
     const mainPos = this.mainCharge.position;
     if (mainPos.x < +hRad) mainPos.x = +hRad;
-    else if (mainPos.x > this.w-hRad) mainPos.x = this.w-hRad;
+    else if (mainPos.x > this.w - hRad) mainPos.x = this.w - hRad;
     if (mainPos.y < +hRad) mainPos.y = +hRad;
-    else if (mainPos.y > this.h-hRad) mainPos.y = this.h-hRad;
+    else if (mainPos.y > this.h - hRad) mainPos.y = this.h - hRad;
 
     this.mainCharge.draw(s);
     s.stroke(this.chargeColor(this.charge));
@@ -126,7 +147,7 @@ export class CoulombInteractiveCanvas1
     const mainPos = this.mainCharge.position;
     this.particles.forEach(p => {
       if (!p.charge) return;
-      const diff = p.position.clone().diff(mainPos);
+      const diff = p.position.clone().sub(mainPos);
       const rad = s.max(10, diff.length);
       p.push(diff.mul(this.k0 * this.charge * p.charge / (rad * rad * rad) * s.deltaTime / 1000));
     });
@@ -149,7 +170,7 @@ export class CoulombInteractiveCanvas1
     this.particles.forEach((p, i) => {
       if (p.position.x < -srad || p.position.y < -srad || p.position.x > s.width + srad || p.position.y > s.height + srad)
         this.particles.splice(i, 1);
-      else if (mainPos.clone().diff(p.position).sqrLength <= sqrMainRad)
+      else if (mainPos.clone().sub(p.position).sqrLength <= sqrMainRad)
         this.particles.splice(i, 1);
     });
   }
