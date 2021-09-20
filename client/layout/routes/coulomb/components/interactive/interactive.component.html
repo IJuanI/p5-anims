@@ -1,0 +1,8 @@
+<div class="mx-auto fich-container wide py-0">
+  <span #ruler></span>
+  <ceich-canvas [width]="width" [height]="height">
+    <ceich-coulomb-interactive-canvas1 [charge]="chargeValue"></ceich-coulomb-interactive-canvas1>
+  </ceich-canvas>
+  
+  <mat-slider thumbLabel (input)="onChangeCharge($event)" [value]="chargeValue" min="-20" max="20" step=1 [color]="color"></mat-slider>
+</div>

@@ -15,7 +15,8 @@ import { AutoMenuModule } from './custom';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', loadChildren: () => import('./routes/app').then(m => m.AppModule) }
+  { path: '', pathMatch: 'full', loadChildren: () => import('./routes/app').then(m => m.AppModule) },
+  { path: 'coulomb', loadChildren: () => import('./routes/coulomb').then(m => m.CoulombModule) }
 ];
 @NgModule({
   declarations: [

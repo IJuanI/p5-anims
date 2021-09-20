@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from 'client/services';
-import p5, { Camera, Color, Renderer } from 'p5';
-import { setFlagsFromString } from 'v8';
+import p5, { Camera, Color } from 'p5';
 
 @Component({
   selector: 'ceich-app',

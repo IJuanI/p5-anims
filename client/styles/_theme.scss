@@ -30,6 +30,18 @@
     }
   }
 
+  $tones: red, purple, blue;
+  
+  @each $tone in $tones {
+    .mat-#{$tone} {
+      .mat-slider-track-fill,
+      .mat-slider-thumb,
+      .mat-slider-thumb-label {
+        background-color: get-color($theme, primary, $tone)
+      }
+    }
+  }
+
   @include custom-invariants($theme);
 }
 

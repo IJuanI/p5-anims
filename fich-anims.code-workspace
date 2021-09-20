@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "..\\fich-anims-build"
 		}
 	],
 	"settings": {

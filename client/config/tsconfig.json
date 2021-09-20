@@ -13,6 +13,7 @@
   ],
   "include": [
     "../layout/**/*.d.ts",
+    "../sim/**/*.d.ts",
     "../services/**/*.d.ts",
     "../guards/**/*.d.ts"
   ],

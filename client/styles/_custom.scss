@@ -47,25 +47,6 @@ table {
 
 
 // Estilos sin color
-// .edu-vertical {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .edu-big {
-//   font-size: 16px;
-// }
-
-// .edu-title {
-//   font-size: 32px;
-//   &.edu-small { font-size: 16px }
-// }
-
-// .edu-description {
-//   font-size: 14px;
-//   &.edu-small { font-size: 12px }
-// }
-
 .fich-panel {
   // align-items: center;
   border: 1px solid;
@@ -95,17 +76,3 @@ table {
     width: 640px;
   }
 }
-
-
-// .mat-expansion-panel .mat-expansion-panel-header {
-//   .mat-expansion-panel-header-title {
-//     flex-grow: unset;
-//     width: 33%;
-//   }
-
-//   .side-icon {
-//     position: absolute;
-//     right: -3em;
-//     margin-top: -0.75em;
-//   }
-// }
