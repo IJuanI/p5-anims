@@ -19,8 +19,16 @@
             "tsConfig": "config/tsconfig.json",
             "aot": true,
             "assets": [
-              { "glob": "**/*", "input": "assets/", "output": "/assets/" },
-              { "glob": "**/*", "input": "../shared/assets/", "output": "/assets/" }
+              {
+                "glob": "**/*",
+                "input": "assets/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "../shared/assets/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -74,6 +82,10 @@
           "options": {
             "browserTarget": "ceich-web:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       },
       "schematics": {

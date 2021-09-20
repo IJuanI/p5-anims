@@ -30,7 +30,7 @@
     }
   }
 
-  $tones: red, purple, blue;
+  $tones: 'red', 'purple', 'blue';
   
   @each $tone in $tones {
     .mat-#{$tone} {

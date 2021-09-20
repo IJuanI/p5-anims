@@ -20,14 +20,14 @@ export class CoulombInteractiveComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.width = this.ruler.nativeElement.getBoundingClientRect().width;
-    this.height = document.getElementById('mainContainer').getBoundingClientRect().height - 78;
+    this.height = document.getElementById('mainContainer').getBoundingClientRect().height - 78-64;
     this.cdRef.detectChanges();
   }
 
   @HostListener('window:resize', [])
   onResize() {
     this.width = this.ruler.nativeElement.getBoundingClientRect().width;
-    this.height = document.getElementById('mainContainer').getBoundingClientRect().height - 78;
+    this.height = document.getElementById('mainContainer').getBoundingClientRect().height - 78-64;
   }
 
   onChangeCharge(event: MatSliderChange) {
